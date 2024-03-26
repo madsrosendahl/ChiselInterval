@@ -1,10 +1,12 @@
 This repository is a supplement to the article
 
-Static Analysis for Hardware Design
-Mads Rosendahl and Maja H. Kirkeby
+# **Static Analysis for Hardware Design**
+
+_Mads Rosendahl and Maja H. Kirkeby
+
 Roskilde University
 Computer Science
-Denmark
+Denmark_
 madsr@ruc.dk, kirkebym@acm.org
 
 Abstract. Implementing algorithms in hardware can be a substantial
