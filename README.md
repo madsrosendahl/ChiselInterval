@@ -31,4 +31,4 @@ The implementation is written in Java 19+ and is converted from an earlier versi
 It uses the newer features with records, pattern matching in switch statements and lamnda expressions
 It is an experiment to examine how easy it is to express semantics and analysis in java.
 The current version is quite similar to how it could be written in ML or Scala.
-to examine the 
+ 
