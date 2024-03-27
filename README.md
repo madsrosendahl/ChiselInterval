@@ -28,7 +28,10 @@ algorithm implementations.
 
 This repository contains implementations of the semantics and analysis of a subset of the hardware description language Chisel.
 The implementation is written in Java 19+ and is converted from an earlier version in Scala.
-It uses the newer features with records, pattern matching in switch statements and lamnda expressions
+It uses the newer features with records, pattern matching in switch statements and lamnda expressions.
 It is an experiment to examine how easy it is to express semantics and analysis in java.
 The current version is quite similar to how it could be written in ML or Scala.
- 
+
+The directory 'in' contains examples of programs in textual form. The Parser converts into abstract syntax using 
+data types (records) in the file AbsSyn. The PrettyPrinter can revert abstract syntax back to textual form.
+The Interpreter contains the state transition function and state iterator interpretation and a collecting interpretation.
