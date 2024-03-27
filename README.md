@@ -32,6 +32,7 @@ It uses the newer features with records, pattern matching in switch statements a
 It is an experiment to examine how easy it is to express semantics and analysis in java.
 The current version is quite similar to how it could be written in ML or Scala.
 
-The directory 'in' contains examples of programs in textual form. The Parser converts into abstract syntax using 
+The directory 'in' contains examples of programs in textual form. 
+The Parser converts programs into abstract syntax using 
 data types (records) in the file AbsSyn. The PrettyPrinter can revert abstract syntax back to textual form.
 The Interpreter contains the state transition function and state iterator interpretation and a collecting interpretation.

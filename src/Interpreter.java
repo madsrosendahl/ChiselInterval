@@ -19,7 +19,7 @@ record EnvC(TreeMap<String,Integer> map){
 
 public class Interpreter extends Aux1{
   public static void main(String[] args) {
-    Parser parser = new Parser("src\\in\\prog7.txt");
+    Parser parser = new Parser("src\\in\\p1random.txt");
     Design d = parser.parser();
     PrettyPrint pp = new PrettyPrint();
     pp.pp(d);
