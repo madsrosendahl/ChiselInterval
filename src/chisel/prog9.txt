@@ -1,0 +1,46 @@
+import Chisel.switch
+import chisel3._
+import chisel3.util.{DecoupledIO, is}
+
+class Main9 extends Module {
+  val range = Module(new Range())
+}
+
+class Range extends Module{
+  val i = RegInit(0.U(32.W))
+  val j = RegInit(0.U(32.W))
+  val a = SyncReadMem(6, UInt(32.W))
+  val aReadAddr = WireInit(0.U)
+  val x = a.read(aReadAddr)
+  val stateReg = RegInit(1.U(8.W))
+  printf("Range %d %d:x %d:i %d:j\n",stateReg,x,i,j)
+  switch(stateReg) {
+    is(1.U){
+        i := 0.U
+        j := 0.U
+        x := 0.U
+        stateReg := 2.U
+    }
+    is(2.U){
+        a.write(i,i)
+        i := i + 1.U
+        stateReg := Mux(i < 5.U,2.U,3.U)
+    }
+    is(3.U){
+        i := i - 1.U
+        stateReg := 4.U
+    }
+    is(4.U){
+        aReadAddr := i
+        i := i - 1.U
+        stateReg := Mux(i > 0.U,5.U,6.U)
+    }
+    is(5.U){
+        j := j + x
+        stateReg := 4.U
+    }
+    is(6.U){
+        stateReg := 6.U
+    }
+  }
+}

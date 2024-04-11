@@ -1,0 +1,51 @@
+import Chisel.switch
+import chisel3._
+import chisel3.util.{DecoupledIO, is}
+
+class Main6 extends Module {
+  val random = Module(new Random6())
+}
+
+class Random6 extends Module{
+  val x = RegInit(0.U(32.W))
+  val i = RegInit(0.U(32.W))
+  val k = RegInit(0.U(32.W))
+  val a = SyncReadMem(11, UInt(32.W))
+  val aReadAddr = WireInit(0.U)
+  val r = a.read(aReadAddr)
+  val stateReg = RegInit(1.U(8.W))
+  printf("Random6 %d %d:x %d:i %d:k %d:r\n",stateReg,x,i,k,r)
+  switch(stateReg) {
+    is(1.U){
+        i := 0.U
+        stateReg := 2.U
+    }
+    is(2.U){
+        x := 83.U * i + 52.U
+        stateReg := 3.U
+    }
+    is(3.U){
+        x := x % 101.U
+        stateReg := 4.U
+    }
+    is(4.U){
+        a.write(i,x)
+        i := i + 1.U
+        stateReg := Mux(i < 10.U,2.U,5.U)
+    }
+    is(5.U){
+        i := 1.U
+        aReadAddr := 0.U
+        stateReg := 6.U
+    }
+    is(6.U){
+        k := k + r
+        aReadAddr := i
+        i := i + 1.U
+        stateReg := Mux(i < 10.U,6.U,7.U)
+    }
+    is(7.U){
+        stateReg := 7.U
+    }
+  }
+}

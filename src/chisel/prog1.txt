@@ -1,0 +1,34 @@
+import Chisel.switch
+import chisel3._
+import chisel3.util.{DecoupledIO, is}
+
+class Main1 extends Module {
+  val prog = Module(new Prog())
+}
+
+class Prog extends Module{
+  val i = RegInit(0.U(32.W))
+  val j = RegInit(0.U(32.W))
+  val k = RegInit(0.U(32.W))
+  val stateReg = RegInit(1.U(8.W))
+  printf("Prog %d %d:i %d:j %d:k\n",stateReg,i,j,k)
+  switch(stateReg) {
+    is(1.U){
+        i := 15.U
+        j := 1.U
+        stateReg := 2.U
+    }
+    is(2.U){
+        i := i - 1.U
+        j := j + 1.U
+        stateReg := 3.U
+    }
+    is(3.U){
+        stateReg := Mux(i > j,2.U,4.U)
+    }
+    is(4.U){
+        k := 1.U
+        stateReg := 4.U
+    }
+  }
+}

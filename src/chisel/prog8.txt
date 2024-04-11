@@ -1,0 +1,74 @@
+import Chisel.switch
+import chisel3._
+import chisel3.util.{DecoupledIO, is}
+
+class Main8 extends Module {
+  val sender = Module(new Sender())
+  val receiver = Module(new Receiver())
+  sender.io.out <> receiver.io.in
+}
+
+class Sender extends Module{
+  val io = IO(new Bundle{
+    val out = new DecoupledIO(UInt(32.W))
+  })
+  val outBits = Reg(UInt(32.W))
+  val outValid = RegInit(false.B)
+  io.out.bits := outBits
+  io.out.valid := outValid
+  when(io.out.ready === 0.B) { outValid := 0.B }
+  val i = RegInit(0.U(32.W))
+  val stateReg = RegInit(1.U(8.W))
+  printf("Sender %d %d:i\n",stateReg,i)
+  printf("Channel %d:bits %d:ready %d:valid\n",outBits, io.out.ready, outValid)
+  switch(stateReg) {
+    is(1.U){
+        i := 0.U
+        stateReg := 2.U
+    }
+    is(2.U){
+      when(outValid === 0.B && io.out.ready === 1.B){
+        outValid :=1.B
+        outBits := i
+        i := i + 1.U
+        stateReg := Mux(i < 5.U,2.U,3.U)
+      }
+    }
+    is(3.U){
+        stateReg := 3.U
+    }
+  }
+}
+
+class Receiver extends Module{
+  val io = IO(new Bundle{
+    val in = Flipped(new DecoupledIO(UInt(32.W)))
+  })
+  val inReady = RegInit(false.B)
+  io.in.ready := inReady
+  when(io.in.ready === 0.B) { inReady := 1.B }
+  val x = RegInit(0.U(32.W))
+  val j = RegInit(0.U(32.W))
+  val stateReg = RegInit(1.U(8.W))
+  printf("Receiver %d %d:x %d:j\n",stateReg,x,j)
+  switch(stateReg) {
+    is(1.U){
+        j := 0.U
+        stateReg := 2.U
+    }
+    is(2.U){
+      when(inReady === 1.B && io.in.valid === 1.B){
+        inReady :=0.B
+        x := io.in.bits
+        stateReg := 3.U
+      }
+    }
+    is(3.U){
+        j := j + x
+        stateReg := Mux(x < 5.U,2.U,4.U)
+    }
+    is(4.U){
+        stateReg := 4.U
+    }
+  }
+}
