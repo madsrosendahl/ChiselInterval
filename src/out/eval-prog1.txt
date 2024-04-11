@@ -1,0 +1,35 @@
+clock at 0 [1]
+prog 1      0:i     0:j     0:k
+clock at 1 [1]
+prog 2      15:i     1:j     0:k
+clock at 2 [2]
+prog 3      14:i     2:j     0:k
+clock at 3 [3]
+prog 2      14:i     2:j     0:k
+clock at 4 [2]
+prog 3      13:i     3:j     0:k
+clock at 5 [3]
+prog 2      13:i     3:j     0:k
+clock at 6 [2]
+prog 3      12:i     4:j     0:k
+clock at 7 [3]
+prog 2      12:i     4:j     0:k
+clock at 8 [2]
+prog 3      11:i     5:j     0:k
+clock at 9 [3]
+prog 2      11:i     5:j     0:k
+clock at 10 [2]
+prog 3      10:i     6:j     0:k
+clock at 11 [3]
+prog 2      10:i     6:j     0:k
+clock at 12 [2]
+prog 3      9:i     7:j     0:k
+clock at 13 [3]
+prog 2      9:i     7:j     0:k
+clock at 14 [2]
+prog 3      8:i     8:j     0:k
+clock at 15 [3]
+prog 4      8:i     8:j     0:k
+clock at 16 [4]
+prog 4      8:i     8:j     1:k
+done

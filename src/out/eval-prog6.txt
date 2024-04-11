@@ -1,0 +1,93 @@
+clock at 0 [1]
+random 1      0:i     0:k     0:r     0:x
+clock at 1 [1]
+random 2      0:i     0:k     0:r     0:x
+clock at 2 [2]
+random 3      0:i     0:k     0:r     52:x
+clock at 3 [3]
+random 4      0:i     0:k     0:r     52:x
+clock at 4 [4]
+random 2      1:i     0:k     0:r     52:x
+clock at 5 [2]
+random 3      1:i     0:k     0:r     135:x
+clock at 6 [3]
+random 4      1:i     0:k     0:r     34:x
+clock at 7 [4]
+random 2      2:i     0:k     0:r     34:x
+clock at 8 [2]
+random 3      2:i     0:k     0:r     218:x
+clock at 9 [3]
+random 4      2:i     0:k     0:r     16:x
+clock at 10 [4]
+random 2      3:i     0:k     0:r     16:x
+clock at 11 [2]
+random 3      3:i     0:k     0:r     301:x
+clock at 12 [3]
+random 4      3:i     0:k     0:r     99:x
+clock at 13 [4]
+random 2      4:i     0:k     0:r     99:x
+clock at 14 [2]
+random 3      4:i     0:k     0:r     384:x
+clock at 15 [3]
+random 4      4:i     0:k     0:r     81:x
+clock at 16 [4]
+random 2      5:i     0:k     0:r     81:x
+clock at 17 [2]
+random 3      5:i     0:k     0:r     467:x
+clock at 18 [3]
+random 4      5:i     0:k     0:r     63:x
+clock at 19 [4]
+random 2      6:i     0:k     0:r     63:x
+clock at 20 [2]
+random 3      6:i     0:k     0:r     550:x
+clock at 21 [3]
+random 4      6:i     0:k     0:r     45:x
+clock at 22 [4]
+random 2      7:i     0:k     0:r     45:x
+clock at 23 [2]
+random 3      7:i     0:k     0:r     633:x
+clock at 24 [3]
+random 4      7:i     0:k     0:r     27:x
+clock at 25 [4]
+random 2      8:i     0:k     0:r     27:x
+clock at 26 [2]
+random 3      8:i     0:k     0:r     716:x
+clock at 27 [3]
+random 4      8:i     0:k     0:r     9:x
+clock at 28 [4]
+random 2      9:i     0:k     0:r     9:x
+clock at 29 [2]
+random 3      9:i     0:k     0:r     799:x
+clock at 30 [3]
+random 4      9:i     0:k     0:r     92:x
+clock at 31 [4]
+random 2      10:i     0:k     0:r     92:x
+clock at 32 [2]
+random 3      10:i     0:k     0:r     882:x
+clock at 33 [3]
+random 4      10:i     0:k     0:r     74:x
+clock at 34 [4]
+random 5      11:i     0:k     0:r     74:x
+clock at 35 [5]
+random 6      1:i     0:k     52:r     74:x
+clock at 36 [6]
+random 6      2:i     52:k     34:r     74:x
+clock at 37 [6]
+random 6      3:i     86:k     16:r     74:x
+clock at 38 [6]
+random 6      4:i     102:k     99:r     74:x
+clock at 39 [6]
+random 6      5:i     201:k     81:r     74:x
+clock at 40 [6]
+random 6      6:i     282:k     63:r     74:x
+clock at 41 [6]
+random 6      7:i     345:k     45:r     74:x
+clock at 42 [6]
+random 6      8:i     390:k     27:r     74:x
+clock at 43 [6]
+random 6      9:i     417:k     9:r     74:x
+clock at 44 [6]
+random 6      10:i     426:k     92:r     74:x
+clock at 45 [6]
+random 7      11:i     518:k     74:r     74:x
+done
