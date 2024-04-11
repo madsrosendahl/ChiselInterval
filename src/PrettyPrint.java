@@ -8,43 +8,50 @@ import java.io.PrintStream;
 
 public class PrettyPrint {
   public static void main(String[] args) {
-    Parser parser=new Parser("src\\in\\prog9.txt");
-    Design d=parser.parser();
-    //System.out.println(d);
-    PrettyPrint pp=new PrettyPrint();
-    PrintStream out1=pp.outfile("src\\in\\pprog9.txt");
-    //pp.pp(System.out,d);
-    pp.pp(out1,d);
-    out1.close();
-    Parser parser2=new Parser("src\\in\\prog9.txt");
-    Design d2=parser2.parser();
-    pp.pp(System.out,d2);
+    Design d=Parser.parser("src\\in\\prog9.txt");
+    String t="src\\out\\tmp.txt";
+    PrettyPrint.prettyprint(d,t);
+    for(String s:InOut.readfile(t)) System.out.println(s);
   }
-  void pp( Design d){
-    pp(System.out,d);
+
+  //-------------------------
+  // The class contains a method prettyprint to print a design in the abstract syntax
+
+  public static void prettyprint(Design d){
+    PrettyPrint p=new PrettyPrint();
+    p.pp(System.out,d);
   }
-  void pp(PrintStream out, Design d){
+  public static void prettyprint( Design d,String f){
+    PrettyPrint p=new PrettyPrint();
+    PrintStream out=InOut.outfile(f);
+    p.pp(out,d);
+    out.close();
+  }
+  //-------------------------
+  private PrettyPrint(){}
+
+  private void pp(PrintStream out, Design d){
     for(ValDecl vd:d.decl())pp(out,vd);
     for(Conc cn:d.con())pp(out,cn);
     out.println();
     for(Module m:d.mod())pp(out,m);
   }
-  void pp(PrintStream out,ValDecl vd){
+  private void pp(PrintStream out,ValDecl vd){
     out.println(vd);
   }
-  void pp(PrintStream out,Conc cn){
+  private void pp(PrintStream out,Conc cn){
     out.println(cn);
   }
-  void pp(PrintStream out,Module m){
+  private void pp(PrintStream out,Module m){
     out.println("module "+m.nm());
     for(Decl d: m.decl())pp(out,d);
     for(State s: m.states())pp(out,s);
   }
-  void pp(PrintStream out,Decl d){
+  private void pp(PrintStream out,Decl d){
     out.println(d);
   }
 
-  void pp(PrintStream out,State s){
+  private void pp(PrintStream out,State s){
     if(s.cmd().equals(new Num(1)))
       out.println("state "+s.n());
     else
@@ -54,16 +61,7 @@ public class PrettyPrint {
     out.println();
   }
 
-  void pp(PrintStream out,Stat s){
+  private void pp(PrintStream out,Stat s){
     out.println("  "+s);
-  }
-
-  PrintStream outfile(String f){
-    try{
-      return new PrintStream(new FileOutputStream(f));
-    }catch(IOException e){
-      System.out.println(e);
-      return null;
-    }
   }
 }

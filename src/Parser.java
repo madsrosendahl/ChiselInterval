@@ -8,9 +8,8 @@ import java.util.regex.Pattern;
 
 public class Parser {
   public static void main(String[] args) {
-    Parser parser=new Parser("src\\in\\prog8.txt");
-    Design d=parser.parser();
-    System.out.println(d);
+    Design d =Parser.parser("src\\in\\prog.txt");
+    PrettyPrint.prettyprint(d);
   }
 
 /*
@@ -57,20 +56,33 @@ public class Parser {
     ⟨gotoexp⟩ ::= ⟨number⟩
       | ‘Mux’ ‘(’ ⟨expr⟩ ‘,’ ⟨gotoexp⟩ ‘,’ ⟨gotoexp⟩ ‘)’
 */
+//------------------------------------------------------
+// call the parse using this static method
+// constructor and other methods are private
 
-  RegexParser p = new RegexParser();
-  Infile in;
+  public static Design parser(String f){
+    BufferedReader in =InOut.infile(f);
+    Parser parser = new Parser(in);
+    Design d=parser.parseDesign();
+    InOut.close(in);
+    return d;
+  }
 
-  Parser(String f) {
-    in=new Infile(f);
+  private Parser(BufferedReader in) {
+    this.in=in;
     p.addAbrv("ident", "([a-zA-Z0-9]+)");
     p.addAbrv( "num", "([0-9]+)");
     p.addAbrv("exp", "([a-zA-Z0-9 \\(\\)\\<\\>\\=\\.\\,\\+\\-\\*\\%\\&\\|]+)");
   }
 
-  String inp="";
-  void next(){ inp=in.readLine();while(inp!=null&&inp.trim().equals(""))inp=in.readLine(); }
-  Design parser() {
+//------------------------------------------------------
+  private RegexParser p = new RegexParser();
+  //Infile in;
+  private BufferedReader in;
+
+  private String inp="";
+  private void next(){ inp=InOut.readln(in);while(inp!=null&&inp.trim().equals(""))inp=InOut.readln(in); }
+  private Design parseDesign() {
     ArrayList<ValDecl> valDecls=new ArrayList<>();
     ArrayList<Conc> concs=new ArrayList<>();
     ArrayList<Module> mods=new ArrayList<>();
@@ -84,18 +96,18 @@ public class Parser {
       Object o= p.parse(inp, "module ident", a -> new Module(a[0],null,null));
       if(o==null)break; else next();
       Module mod=(Module)o;
-      //System.out.println("Mod: "+mod);
       ArrayList<Decl> decls=parseDecls();
       ArrayList<State> states=parseStates();
       mod=new Module(mod.nm(),decls,states);
       mods.add(mod);
     }
-    //System.out.println("End at "+inp);
+    if(inp!=null&& inp.trim().length()>0){
+      System.out.println("End at "+inp);
+    }
     return new Design(valDecls,concs,mods);
   }
 
-  ArrayList<Decl> parseDecls(){
-    //System.out.println("parseDecls "+inp);
+  private ArrayList<Decl> parseDecls(){
     ArrayList<Decl> decls=new ArrayList<>();
     for(;;) {
       Object o = null;
@@ -113,8 +125,7 @@ public class Parser {
     }
     return decls;
   }
-  ArrayList<State> parseStates(){
-    //System.out.println("parseStates "+inp);
+  private ArrayList<State> parseStates(){
     ArrayList<State> states=new ArrayList<>();
     for(;;) {
       if(inp==null)break;
@@ -123,7 +134,6 @@ public class Parser {
       if (o == null) o = p.parse(inp, "state num", a -> new State(atoi(a[0]), new Num(1), null, null));
       if (o == null) break;else next();
       State st=(State) o;
-      //System.out.println("State: "+st);
       ArrayList<Stat> stmt=parseStatements();
       Goto gt=parseGoto();
       st=new State(st.n(),st.cmd(),stmt,gt);
@@ -132,8 +142,7 @@ public class Parser {
     return states;
   }
 
-  ArrayList<Stat> parseStatements() {
-    //System.out.println("parseStatements " + inp);
+  private ArrayList<Stat> parseStatements() {
     ArrayList<Stat> stmts = new ArrayList<>();
     for(;;) {
       Object o = null;
@@ -144,29 +153,25 @@ public class Parser {
       if (o == null) o = p.parse(inp, "ident = ident[exp]", a -> new ReadMem(a[0],a[1],parseExp(a[2])));
       if (o == null) break; else next();
       Stat st=(Stat) o;
-      //System.out.println("Stat: "+st);
       stmts.add(st);
     }
     return stmts;
   }
   Goto parseGoto(){
-    //System.out.println("Goto: "+inp);
     Object gt = p.parse(inp, "goto exp", a -> parseExp(a[0]));
     if(gt==null) return null; else next();
     return exp2goto((Exp) gt);
   }
   Goto exp2goto(Exp e){
-    //System.out.println("Exp2Goto: "+e);
     switch (e){
       case Num n -> {return new Next(n.i());}
       case Mux mux -> {return new Cond(mux.e0(),exp2goto(mux.e1()),exp2goto(mux.e2()));}
       default -> {
-        System.out.println("what "+e);return null;}
+        System.out.println("No match Goto "+e);return null;}
     }
   }
 
-  Exp parseExp(String s) {
-    //System.out.println("E: "+s);
+  private Exp parseExp(String s) {
     Object o = null;
     if (o == null) o = p.parse(s, "(exp)", a -> parseExp(a[0]));
     if (o == null) o = p.parse(s, "num", a -> new Num(atoi(a[0])));
@@ -185,14 +190,14 @@ public class Parser {
     if (o == null) o = p.parse(s, "ident.valid()", a -> new Valid(a[0]));
     if (o == null) o = p.parse(s, "ident.ready()", a -> new Ready(a[0]));
     if (o != null && o instanceof Exp) return (Exp) o;
+    System.out.println("no match exp "+s);
     return null;
   }
   static int atoi(String s){return Integer.parseInt(s);}
 
-  ArrayList<Object> parseRep(String pat, Function<String[],Object> f){
+  private ArrayList<Object> parseRep(String pat, Function<String[],Object> f){
     ArrayList<Object> ret=new ArrayList<>();
     for(;;){
-      //System.out.println("parse: "+inp);
       Object o=p.parse(inp,pat,f);
       if(o==null) break;
       ret.add(o); next();
@@ -202,9 +207,9 @@ public class Parser {
 }
 
 class RegexParser {
-  HashMap<String, String> abrv = new HashMap<>();
-  void addAbrv(String n,String p){abrv.put(n,p);}
-  Object parse(String s, String p, Function<String[], Object> f) {
+  private HashMap<String, String> abrv = new HashMap<>();
+  public void addAbrv(String n,String p){abrv.put(n,p);}
+  public Object parse(String s, String p, Function<String[], Object> f) {
     s = s.trim();
     String meta = "()<>[]+*-/%.,|&";
     for (int i = 0; i < meta.length(); i++)
@@ -224,7 +229,7 @@ class RegexParser {
     return rr;
   }
 
-  static String replaceAll(String s1, String s2, String s3) {
+  public static String replaceAll(String s1, String s2, String s3) {
     int i, j = 0;
     while ((i = s1.indexOf(s2, j)) >= 0) {
       s1 = s1.substring(0, i) + s3 + s1.substring(i + s2.length());
@@ -233,23 +238,3 @@ class RegexParser {
     return s1;
   }
 }
-
-class Infile{
-  BufferedReader in=null;
-  Infile(String s){
-    try {
-      in= new BufferedReader(new FileReader(s));
-    }catch(Exception e){
-      System.out.println(e);
-    }
-  }
-  String readLine(){
-    try {
-      return  in.readLine();
-    }catch(Exception e){
-      System.out.println(e);
-    }
-    return null;
-  }
-}
-
