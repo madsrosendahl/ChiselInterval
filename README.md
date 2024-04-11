@@ -36,3 +36,13 @@ The directory 'in' contains examples of programs in textual form.
 The Parser converts programs into abstract syntax using 
 data types (records) in the file AbsSyn. The PrettyPrinter can revert abstract syntax back to textual form.
 The Interpreter contains the state transition function and state iterator interpretation and a collecting interpretation.
+
+-----------------
+
+The directory 'in' contains a selection of programs in the abstract syntax described in the paper.
+The file 'Parser.java' can parse the files into an internal representation using java records declared in the file 'AbsSyn.java'.
+The file 'Chisel.java' can convert the abstract syntax into the Chisel syntax.
+The converted Chisel programs from the abstract syntax can be found in the directory 'chisel'.
+The file 'Interpreter.java' contains the standard interpretation of the Chisel programs.
+Output from the interpretation can be found in directory 'out' prefixed 'eval-'.
+The Chisel programs can also be run by the Chisel emulator and the output can be found in directory 'out' with prefix 'out-'.
