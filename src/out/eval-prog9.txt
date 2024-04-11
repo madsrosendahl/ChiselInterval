@@ -1,0 +1,41 @@
+clock at 0 [1]
+range 1      0:i     0:j     0:x
+clock at 1 [1]
+range 2      0:i     0:j     0:x
+clock at 2 [2]
+range 2      1:i     0:j     0:x
+clock at 3 [2]
+range 2      2:i     0:j     0:x
+clock at 4 [2]
+range 2      3:i     0:j     0:x
+clock at 5 [2]
+range 2      4:i     0:j     0:x
+clock at 6 [2]
+range 2      5:i     0:j     0:x
+clock at 7 [2]
+range 3      6:i     0:j     0:x
+clock at 8 [3]
+range 4      5:i     0:j     0:x
+clock at 9 [4]
+range 5      4:i     0:j     5:x
+clock at 10 [5]
+range 4      4:i     5:j     5:x
+clock at 11 [4]
+range 5      3:i     5:j     4:x
+clock at 12 [5]
+range 4      3:i     9:j     4:x
+clock at 13 [4]
+range 5      2:i     9:j     3:x
+clock at 14 [5]
+range 4      2:i     12:j     3:x
+clock at 15 [4]
+range 5      1:i     12:j     2:x
+clock at 16 [5]
+range 4      1:i     14:j     2:x
+clock at 17 [4]
+range 5      0:i     14:j     1:x
+clock at 18 [5]
+range 4      0:i     15:j     1:x
+clock at 19 [4]
+range 6      -1:i     15:j     0:x
+done
