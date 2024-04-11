@@ -1,0 +1,86 @@
+Start of Main8 test
+step 0
+Receiver    1           0:x           0:j
+Sender    1           0:i
+Channel           0:bits  0:ready  0:valid
+step 1
+Receiver    2           0:x           0:j
+Sender    2           0:i
+Channel           0:bits  1:ready  0:valid
+step 2
+Receiver    2           0:x           0:j
+Sender    2           1:i
+Channel           0:bits  1:ready  1:valid
+step 3
+Receiver    3           0:x           0:j
+Sender    2           1:i
+Channel           0:bits  0:ready  1:valid
+step 4
+Receiver    2           0:x           0:j
+Sender    2           1:i
+Channel           0:bits  1:ready  0:valid
+step 5
+Receiver    2           0:x           0:j
+Sender    2           2:i
+Channel           1:bits  1:ready  1:valid
+step 6
+Receiver    3           1:x           0:j
+Sender    2           2:i
+Channel           1:bits  0:ready  1:valid
+step 7
+Receiver    2           1:x           1:j
+Sender    2           2:i
+Channel           1:bits  1:ready  0:valid
+step 8
+Receiver    2           1:x           1:j
+Sender    2           3:i
+Channel           2:bits  1:ready  1:valid
+step 9
+Receiver    3           2:x           1:j
+Sender    2           3:i
+Channel           2:bits  0:ready  1:valid
+step 10
+Receiver    2           2:x           3:j
+Sender    2           3:i
+Channel           2:bits  1:ready  0:valid
+step 11
+Receiver    2           2:x           3:j
+Sender    2           4:i
+Channel           3:bits  1:ready  1:valid
+step 12
+Receiver    3           3:x           3:j
+Sender    2           4:i
+Channel           3:bits  0:ready  1:valid
+step 13
+Receiver    2           3:x           6:j
+Sender    2           4:i
+Channel           3:bits  1:ready  0:valid
+step 14
+Receiver    2           3:x           6:j
+Sender    2           5:i
+Channel           4:bits  1:ready  1:valid
+step 15
+Receiver    3           4:x           6:j
+Sender    2           5:i
+Channel           4:bits  0:ready  1:valid
+step 16
+Receiver    2           4:x          10:j
+Sender    2           5:i
+Channel           4:bits  1:ready  0:valid
+step 17
+Receiver    2           4:x          10:j
+Sender    3           6:i
+Channel           5:bits  1:ready  1:valid
+step 18
+Receiver    3           5:x          10:j
+Sender    3           6:i
+Channel           5:bits  0:ready  1:valid
+step 19
+Receiver    4           5:x          15:j
+Sender    3           6:i
+Channel           5:bits  1:ready  0:valid
+step 20
+Receiver    4           5:x          15:j
+Sender    3           6:i
+Channel           5:bits  1:ready  0:valid
+End of test

@@ -1,0 +1,94 @@
+Start of Main6 test
+step 0
+Random6    1           0:x           0:i           0:k           0:r
+step 1
+Random6    2           0:x           0:i           0:k           0:r
+step 2
+Random6    3          52:x           0:i           0:k           0:r
+step 3
+Random6    4          52:x           0:i           0:k           0:r
+step 4
+Random6    2          52:x           1:i           0:k          52:r
+step 5
+Random6    3         135:x           1:i           0:k          52:r
+step 6
+Random6    4          34:x           1:i           0:k          52:r
+step 7
+Random6    2          34:x           2:i           0:k          52:r
+step 8
+Random6    3         218:x           2:i           0:k          52:r
+step 9
+Random6    4          16:x           2:i           0:k          52:r
+step 10
+Random6    2          16:x           3:i           0:k          52:r
+step 11
+Random6    3         301:x           3:i           0:k          52:r
+step 12
+Random6    4          99:x           3:i           0:k          52:r
+step 13
+Random6    2          99:x           4:i           0:k          52:r
+step 14
+Random6    3         384:x           4:i           0:k          52:r
+step 15
+Random6    4          81:x           4:i           0:k          52:r
+step 16
+Random6    2          81:x           5:i           0:k          52:r
+step 17
+Random6    3         467:x           5:i           0:k          52:r
+step 18
+Random6    4          63:x           5:i           0:k          52:r
+step 19
+Random6    2          63:x           6:i           0:k          52:r
+step 20
+Random6    3         550:x           6:i           0:k          52:r
+step 21
+Random6    4          45:x           6:i           0:k          52:r
+step 22
+Random6    2          45:x           7:i           0:k          52:r
+step 23
+Random6    3         633:x           7:i           0:k          52:r
+step 24
+Random6    4          27:x           7:i           0:k          52:r
+step 25
+Random6    2          27:x           8:i           0:k          52:r
+step 26
+Random6    3         716:x           8:i           0:k          52:r
+step 27
+Random6    4           9:x           8:i           0:k          52:r
+step 28
+Random6    2           9:x           9:i           0:k          52:r
+step 29
+Random6    3         799:x           9:i           0:k          52:r
+step 30
+Random6    4          92:x           9:i           0:k          52:r
+step 31
+Random6    2          92:x          10:i           0:k          52:r
+step 32
+Random6    3         882:x          10:i           0:k          52:r
+step 33
+Random6    4          74:x          10:i           0:k          52:r
+step 34
+Random6    5          74:x          11:i           0:k          52:r
+step 35
+Random6    6          74:x           1:i           0:k          52:r
+step 36
+Random6    6          74:x           2:i          52:k          34:r
+step 37
+Random6    6          74:x           3:i          86:k          16:r
+step 38
+Random6    6          74:x           4:i         102:k          99:r
+step 39
+Random6    6          74:x           5:i         201:k          81:r
+step 40
+Random6    6          74:x           6:i         282:k          63:r
+step 41
+Random6    6          74:x           7:i         345:k          45:r
+step 42
+Random6    6          74:x           8:i         390:k          27:r
+step 43
+Random6    6          74:x           9:i         417:k           9:r
+step 44
+Random6    6          74:x          10:i         426:k          92:r
+step 45
+Random6    7          74:x          11:i         518:k          74:r
+End of test

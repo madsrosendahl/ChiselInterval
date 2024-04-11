@@ -1,0 +1,44 @@
+Start of Main9 test
+step 0
+Range    1           0:x           0:i           0:j
+step 1
+Range    2           0:x           0:i           0:j
+step 2
+Range    2           0:x           1:i           0:j
+step 3
+Range    2           0:x           2:i           0:j
+step 4
+Range    2           0:x           3:i           0:j
+step 5
+Range    2           0:x           4:i           0:j
+step 6
+Range    2           0:x           5:i           0:j
+step 7
+Range    3           0:x           6:i           0:j
+step 8
+Range    4           0:x           5:i           0:j
+step 9
+Range    5           5:x           4:i           0:j
+step 10
+Range    4           0:x           4:i           5:j
+step 11
+Range    5           4:x           3:i           5:j
+step 12
+Range    4           0:x           3:i           9:j
+step 13
+Range    5           3:x           2:i           9:j
+step 14
+Range    4           0:x           2:i          12:j
+step 15
+Range    5           2:x           1:i          12:j
+step 16
+Range    4           0:x           1:i          14:j
+step 17
+Range    5           1:x           0:i          14:j
+step 18
+Range    4           0:x           0:i          15:j
+step 19
+Range    6           0:x  4294967295:i          15:j
+step 20
+Range    6           0:x  4294967295:i          15:j
+End of test

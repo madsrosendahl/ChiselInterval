@@ -1,0 +1,74 @@
+Start of Main7 test
+step 0
+Random    1           0:x           0:i
+step 1
+Random    2           0:x           0:i
+step 2
+Random    3          52:x           0:i
+step 3
+Random    4          52:x           0:i
+step 4
+Random    2          52:x           1:i
+step 5
+Random    3         135:x           1:i
+step 6
+Random    4          34:x           1:i
+step 7
+Random    2          34:x           2:i
+step 8
+Random    3         218:x           2:i
+step 9
+Random    4          16:x           2:i
+step 10
+Random    2          16:x           3:i
+step 11
+Random    3         301:x           3:i
+step 12
+Random    4          99:x           3:i
+step 13
+Random    2          99:x           4:i
+step 14
+Random    3         384:x           4:i
+step 15
+Random    4          81:x           4:i
+step 16
+Random    2          81:x           5:i
+step 17
+Random    3         467:x           5:i
+step 18
+Random    4          63:x           5:i
+step 19
+Random    2          63:x           6:i
+step 20
+Random    3         550:x           6:i
+step 21
+Random    4          45:x           6:i
+step 22
+Random    2          45:x           7:i
+step 23
+Random    3         633:x           7:i
+step 24
+Random    4          27:x           7:i
+step 25
+Random    2          27:x           8:i
+step 26
+Random    3         716:x           8:i
+step 27
+Random    4           9:x           8:i
+step 28
+Random    2           9:x           9:i
+step 29
+Random    3         799:x           9:i
+step 30
+Random    4          92:x           9:i
+step 31
+Random    2          92:x          10:i
+step 32
+Random    3         882:x          10:i
+step 33
+Random    4          74:x          10:i
+step 34
+Random    5          74:x          11:i
+step 35
+Random    5          74:x          11:i
+End of test

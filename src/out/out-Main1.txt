@@ -1,0 +1,38 @@
+Start of Main1 test
+step 0
+Prog    1           0:i           0:j           0:k
+step 1
+Prog    2          15:i           1:j           0:k
+step 2
+Prog    3          14:i           2:j           0:k
+step 3
+Prog    2          14:i           2:j           0:k
+step 4
+Prog    3          13:i           3:j           0:k
+step 5
+Prog    2          13:i           3:j           0:k
+step 6
+Prog    3          12:i           4:j           0:k
+step 7
+Prog    2          12:i           4:j           0:k
+step 8
+Prog    3          11:i           5:j           0:k
+step 9
+Prog    2          11:i           5:j           0:k
+step 10
+Prog    3          10:i           6:j           0:k
+step 11
+Prog    2          10:i           6:j           0:k
+step 12
+Prog    3           9:i           7:j           0:k
+step 13
+Prog    2           9:i           7:j           0:k
+step 14
+Prog    3           8:i           8:j           0:k
+step 15
+Prog    4           8:i           8:j           0:k
+step 16
+Prog    4           8:i           8:j           1:k
+step 17
+Prog    4           8:i           8:j           1:k
+End of test
