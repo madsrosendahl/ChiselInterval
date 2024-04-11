@@ -30,8 +30,7 @@ import java.util.ArrayList;
       | ‘Mux’ ‘(’ ⟨expr⟩ ‘,’ ⟨gotoexp⟩ ‘,’ ⟨gotoexp⟩ ‘)’
 */
 
-public class AbsSyn {
-}
+public class AbsSyn { } // not used file contains record declarations
 
 record Design(ArrayList<ValDecl> decl, ArrayList<Conc> con, ArrayList<Module> mod ){}
 
@@ -86,5 +85,4 @@ record Next(int i) implements Goto{
   public String toString(){return ""+i;}}
 record Cond(Exp e,Goto g1,Goto g2) implements Goto{
   public String toString(){return "Mux("+e+","+g1+","+g2+")";}}
-  //public String toString(){return e+" ? "+g1+" : "+g2;}}
 
